@@ -24,7 +24,7 @@ Enables Claude Code to generate images, videos, text-to-speech audio, transcript
 
 ```bash
 # From GitHub
-claude skill install github:302ai/ai302-cli-skill/.claude/skills/ai302-cli
+npx skills add 302ai/ai302-cli-skill -a claude-code -y
 
 ```
 
