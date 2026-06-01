@@ -19,6 +19,7 @@ Guide the agent to use the `ai302` CLI for AI-powered media generation. The CLI 
 Before running any `ai302` command, verify the environment:
 
 1. **Installation**: `pip install ai302==1.0.1b2`
+   - **Upgrading from an older version**: Run `pip install ai302==1.0.1b2 --upgrade`. The skill and the pip package must be at the same version — updating the skill alone won't enable new modules (3D, search).
 2. **API Key**: Set `AI302_KEY` env var, or pass `--api_key` to each command. Not strictly required if the user has already configured it.
 3. **PATH** (Windows only): If `ai302` is not found after pip install, the Scripts directory is not in PATH. Run `pip show ai302` to find the Location, then add the sibling `Scripts` folder to PATH.
 

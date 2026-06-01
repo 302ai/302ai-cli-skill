@@ -33,9 +33,14 @@ claude skill install github:302ai/ai302-cli-skill/.claude/skills/ai302-cli
 ## Update
 
 ```bash
-# Update to the latest version
+# 1. Update the skill
 claude skill update github:302ai/ai302-cli-skill/.claude/skills/ai302-cli
+
+# 2. Upgrade the ai302 CLI package (required for new modules)
+pip install ai302==1.0.1b2 --upgrade
 ```
+
+> **Important**: Updating the skill alone is not enough — you must also upgrade the `ai302` pip package to the matching version, otherwise new modules (e.g. 3D, search) will not be available.
 
 ## Usage
 
