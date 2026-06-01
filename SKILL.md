@@ -2,22 +2,23 @@
 name: ai302-cli
 description: >
   Use the 302.AI CLI (ai302) to generate images, videos, text-to-speech audio, speech-to-text transcriptions,
-  and sound effects via AI models. Trigger this skill whenever the user asks to: generate/create images (text-to-image
-  or image-to-image), generate/create videos (text-to-video or image-to-video), convert text to speech / TTS /
-  voice synthesis, transcribe audio / speech-to-text / STT, generate sound effects / audio from text prompts,
-  query AI model parameters or billing records, or any task involving the `ai302` command-line tool. Also trigger
-  when the user mentions "302.AI", "302ai", or wants to use AI media generation APIs from the command line.
+  sound effects, 3D models, and perform web searches via AI models. Trigger this skill whenever the user asks to:
+  generate/create images (text-to-image or image-to-image), generate/create videos (text-to-video or image-to-video),
+  convert text to speech / TTS / voice synthesis, transcribe audio / speech-to-text / STT, generate sound effects /
+  audio from text prompts, generate 3D models (text-to-3D or image-to-3D), search the web, query AI model parameters
+  or billing records, or any task involving the `ai302` command-line tool. Also trigger when the user mentions
+  "302.AI", "302ai", or wants to use AI media generation APIs from the command line.
 ---
 
 # 302.AI CLI Skill
 
-Guide the agent to use the `ai302` CLI for AI-powered media generation. The CLI supports image, video, TTS, STT, SFX generation, model management, and billing queries.
+Guide the agent to use the `ai302` CLI for AI-powered media generation. The CLI supports image, video, TTS, STT, SFX, 3D generation, web search, model management, and billing queries.
 
 ## Prerequisites
 
 Before running any `ai302` command, verify the environment:
 
-1. **Installation**: `pip install ai302==1.0.1b1`
+1. **Installation**: `pip install ai302==1.0.1b2`
 2. **API Key**: Set `AI302_KEY` env var, or pass `--api_key` to each command. Not strictly required if the user has already configured it.
 3. **PATH** (Windows only): If `ai302` is not found after pip install, the Scripts directory is not in PATH. Run `pip show ai302` to find the Location, then add the sibling `Scripts` folder to PATH.
 
@@ -34,7 +35,7 @@ All commands follow this pattern:
 ai302 <module> <action> [OPTIONS]
 ```
 
-Modules: `model`, `image`, `video`, `tts`, `stt`, `sfx`, `record`
+Modules: `model`, `image`, `video`, `tts`, `stt`, `sfx`, `3d`, `search`, `record`
 
 Every command outputs JSON to stdout. On success, `"status"` is `"completed"` (or `"pending"` for async tasks). On failure, `"status"` is `"failed"` and exit code is `1`. Configuration errors (missing model, invalid kind) use exit code `2`.
 
@@ -50,6 +51,8 @@ Every command outputs JSON to stdout. On success, `"status"` is `"completed"` (o
 | tts | **Async** | `tts create` + `tts fetch` | Returns taskid, poll for audio URL |
 | stt | Sync | `stt transcribe` | Blocks until transcription complete (fast, sync is fine) |
 | sfx | **Async** | `sfx create` + `sfx fetch` | Returns taskid, poll for result |
+| 3d | **Async** | `3d create` + `3d fetch` | Returns taskid, poll for 3D model URL |
+| search | Sync | `search run` | Returns search results immediately |
 
 **Async polling pattern** — for any async task:
 1. Call `create` → get `taskid` from JSON output
@@ -70,6 +73,9 @@ When the user asks for something, pick the right module and workflow:
 - **"Generate a sound effect"** / **"Make thunder sounds"** → `sfx create` + `sfx fetch` (async)
 - **"What models are available?"** → `model list <kind>` or `model params <model>`
 - **"How much did this cost?"** / **"Show billing"** → `record get <request_ids>`
+- **"Generate a 3D model"** / **"Make a 3D cat"** → `3d create` + `3d fetch` (async)
+- **"Convert this image to 3D"** → `3d create` with `--image` flag (async)
+- **"Search the web"** / **"Find information about X"** → `search run` (sync)
 
 ## Key Gotchas
 
@@ -84,11 +90,14 @@ When the user asks for something, pick the right module and workflow:
 
 4. **Extra parameters**: Both `image generate` and `video create` accept `--extra` for a JSON string of additional model-specific parameters. Use this when the user needs fine-grained control not covered by standard options.
 
-5. **Polling intervals**: When polling async tasks, wait a few seconds between fetches. Image tasks typically complete in 10-30 seconds, video in 1-5 minutes, TTS in 5-15 seconds.
+5. **Polling intervals**: When polling async tasks, wait a few seconds between fetches. Image tasks typically complete in 10-30 seconds, video in 1-5 minutes, TTS in 5-15 seconds, 3D in 1-5 minutes.
 
-6. **Output parsing**: All commands output JSON. Parse with `jq` or read the raw JSON. The key fields are:
+6. **Search provider selection**: Default provider is `tavily`. For Chinese content, use `--provider bocha` for better results. For academic searches, use `--provider metaso --category scholar` or `--provider exa --category "research paper"`.
+
+7. **Output parsing**: All commands output JSON. Parse with `jq` or read the raw JSON. The key fields are:
    - `status` — task state
    - `image_url` / `video_url` / `audio_url` / `result_url` — the generated media
+   - `result_url` — for 3D tasks, points to the generated `.glb` file
    - `taskid` — for async task tracking
    - `request_id` / `ai302_cost_request_ids` — for billing queries via `record get`
 
@@ -103,3 +112,5 @@ Read these for detailed option tables and examples per module:
 - `references/sfx.md` — Sound effects (async generation)
 - `references/model.md` — Model management and parameter queries
 - `references/record.md` — Billing record queries
+- `references/3d.md` — 3D model generation (t23d, i23d, async)
+- `references/search.md` — Web search (multiple providers, sync)
