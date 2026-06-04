@@ -5,7 +5,7 @@ Transcribe audio files to text. **Synchronous** — blocks until transcription i
 ## stt transcribe
 
 ```bash
-ai302 stt transcribe --file <PATH|URL|DATA_URL> [OPTIONS]
+302ai stt transcribe --file <PATH|URL|DATA_URL> [OPTIONS]
 ```
 
 ### Options
@@ -49,7 +49,7 @@ Note: `response_format` is internally fixed to `json` and not exposed as a CLI o
 List all available STT models.
 
 ```bash
-ai302 stt models
+302ai stt models
 ```
 
 Output: `{"status":"completed","models":["<model_name>",...]}`
@@ -58,14 +58,14 @@ Output: `{"status":"completed","models":["<model_name>",...]}`
 
 ```bash
 # 1. Check available models
-ai302 stt models
+302ai stt models
 
 # 2. Transcribe a local file
-ai302 stt transcribe --file audio.mp3 --model whisper-1
+302ai stt transcribe --file audio.mp3 --model whisper-1
 
 # 3. Transcribe a URL
-ai302 stt transcribe --file "https://example.com/podcast.mp3" --model whisper-1
+302ai stt transcribe --file "https://example.com/podcast.mp3" --model whisper-1
 
 # 4. With language hint
-ai302 stt transcribe --file interview.wav --model whisper-1 --language zh
+302ai stt transcribe --file interview.wav --model whisper-1 --language zh
 ```

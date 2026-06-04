@@ -7,11 +7,12 @@ Manage default models and query model metadata. Use this to discover available m
 Set the default model for a given type. Persists locally.
 
 ```bash
-ai302 model set <kind> <model>
+302ai model set <kind> <model>
 ```
 
-- `kind`: One of `t2v`, `i2v`, `t2i`, `i2i`, `stt`
+- `kind`: One of `t2v`, `i2v`, `t2i`, `i2i`, `stt`, `song`
 - `model`: Model name (no validation)
+  - Song models use `model@provider` format (e.g. `chirp-v3-5@suno`), the `@provider` part is auto-parsed
 
 Output: `{"status":"completed","kind":"t2v","model":"<model_name>"}`
 
@@ -20,10 +21,10 @@ Output: `{"status":"completed","kind":"t2v","model":"<model_name>"}`
 List all supported models for a type.
 
 ```bash
-ai302 model list <kind>
+302ai model list <kind>
 ```
 
-- `kind`: One of `t2v`, `i2v`, `t2i`, `i2i`, `stt`
+- `kind`: One of `t2v`, `i2v`, `t2i`, `i2i`, `stt`, `song`
 - Invalid kind → exit code 2
 
 Output: `{"status":"completed","kind":"t2v","models":["<model_name>",...]}`
@@ -33,7 +34,7 @@ Output: `{"status":"completed","kind":"t2v","models":["<model_name>",...]}`
 Get a single model from the supported list.
 
 ```bash
-ai302 model get <kind> [--random]
+302ai model get <kind> [--random]
 ```
 
 - Without `--random`: returns first model in list
@@ -46,7 +47,7 @@ Output: `{"status":"completed","kind":"t2v","model":"<model_name>"}`
 Query parameter metadata for a specific model. Useful for building UI forms or validating inputs.
 
 ```bash
-ai302 model params <model>
+302ai model params <model>
 ```
 
 ### Output
@@ -80,14 +81,21 @@ Field meanings:
 
 ```bash
 # Discover what image models are available
-ai302 model list t2i
+302ai model list t2i
 
 # Set a default model so you don't need --model every time
-ai302 model set t2i flux-schnell
+302ai model set t2i flux-schnell
 
 # Check what parameters a model accepts
-ai302 model params flux-schnell
+302ai model params flux-schnell
 
 # Get a random video model
-ai302 model get t2v --random
+302ai model get t2v --random
+
+# Discover what song models are available
+302ai model list song
+# Returns: ["chirp-v3-5@suno", "music-2.5@minimax", "music_v1@elevenlabs", ...]
+
+# Set a default song model
+302ai model set song chirp-v3-5@suno
 ```

@@ -2,14 +2,14 @@
 
 Convert text to speech. Requires discovering providers and voices first. **Async workflow** (create + fetch).
 
-**First-time setup**: Run `ai302 tts refresh` to cache provider/voice data locally. This is required before any other TTS command.
+**First-time setup**: Run `302ai tts refresh` to cache provider/voice data locally. This is required before any other TTS command.
 
 ## tts refresh
 
 Pull provider/voice/model data from the API and cache locally.
 
 ```bash
-ai302 tts refresh [--provider <name>] [--api_key <key>]
+302ai tts refresh [--provider <name>] [--api_key <key>]
 ```
 
 Success output: `{"status":"completed","saved_to":"<path>","providers_count":13}`
@@ -19,7 +19,7 @@ Success output: `{"status":"completed","saved_to":"<path>","providers_count":13}
 List all cached TTS providers.
 
 ```bash
-ai302 tts providers [--provider <name>]
+302ai tts providers [--provider <name>]
 ```
 
 Output: `{"status":"completed","providers":[{"provider":"openai","models":[...],"output_formats":[...],"voices_count":12}]}`
@@ -29,7 +29,7 @@ Output: `{"status":"completed","providers":[{"provider":"openai","models":[...],
 Get a single provider from cache.
 
 ```bash
-ai302 tts providers-get [--provider <name>] [--random]
+302ai tts providers-get [--provider <name>] [--random]
 ```
 
 - Without flags: returns first provider
@@ -40,7 +40,7 @@ ai302 tts providers-get [--provider <name>] [--random]
 List voices for a provider. Defaults to 20 voices, prioritizing those supporting both Chinese and English.
 
 ```bash
-ai302 tts voices [--provider <name>]
+302ai tts voices [--provider <name>]
 ```
 
 Output: `{"status":"completed","provider":"...","voices":[{"provider":"...","voice":"...","name":"..."}]}`
@@ -50,7 +50,7 @@ Output: `{"status":"completed","provider":"...","voices":[{"provider":"...","voi
 Get a single voice from a provider.
 
 ```bash
-ai302 tts voices-get <provider> [--random]
+302ai tts voices-get <provider> [--random]
 ```
 
 - `provider` is a required positional argument
@@ -62,7 +62,7 @@ ai302 tts voices-get <provider> [--random]
 Submit a TTS task. **Requires provider, voice, and model** — all three are mandatory.
 
 ```bash
-ai302 tts create --text "<text>" --provider <provider> --voice <voice> --model <model> [OPTIONS]
+302ai tts create --text "<text>" --provider <provider> --voice <voice> --model <model> [OPTIONS]
 ```
 
 ### Options
@@ -101,7 +101,7 @@ ai302 tts create --text "<text>" --provider <provider> --voice <voice> --model <
 Poll for TTS task completion.
 
 ```bash
-ai302 tts fetch <taskid> [--short]
+302ai tts fetch <taskid> [--short]
 ```
 
 - `--short`: Returns `status`, `taskid`, `ai302_cost_request_ids`, `result_url`
@@ -122,15 +122,15 @@ ai302 tts fetch <taskid> [--short]
 
 ```bash
 # 1. First time: refresh cache
-ai302 tts refresh
+302ai tts refresh
 
 # 2. Discover providers and voices
-ai302 tts providers --provider openai
-ai302 tts voices --provider openai
+302ai tts providers --provider openai
+302ai tts voices --provider openai
 
 # 3. Submit TTS task
-ai302 tts create --text "Hello, welcome to the show" --provider openai --voice alloy --model tts-1
+302ai tts create --text "Hello, welcome to the show" --provider openai --voice alloy --model tts-1
 
 # 4. Poll for result
-ai302 tts fetch task_abc123 --short
+302ai tts fetch task_abc123 --short
 ```

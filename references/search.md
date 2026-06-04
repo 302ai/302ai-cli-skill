@@ -13,7 +13,7 @@ General-purpose web search across multiple providers. **Sync** — results retur
 Execute a web search.
 
 ```bash
-ai302 search run <query> [OPTIONS]
+302ai search run <query> [OPTIONS]
 ```
 
 ### Options
@@ -112,20 +112,20 @@ Outputs the API response directly without formatting:
 
 ```bash
 # Basic search (default tavily)
-ai302 search run "302AI"
+302ai search run "302AI"
 
 # Chinese content — use bocha
-ai302 search run "最新新闻" --provider bocha --count 5
+302ai search run "最新新闻" --provider bocha --count 5
 
 # Academic search (metaso)
-ai302 search run "AI论文" --provider metaso --category scholar
+302ai search run "AI论文" --provider metaso --category scholar
 
 # Research papers (exa)
-ai302 search run "transformer" --provider exa --category "research paper"
+302ai search run "transformer" --provider exa --category "research paper"
 
 # Domain filter + time range
-ai302 search run "最新技术" --time-range week --include-domains github.com,stackoverflow.com
+302ai search run "最新技术" --time-range week --include-domains github.com,stackoverflow.com
 
 # Raw API response
-ai302 search run "test" --raw
+302ai search run "test" --raw
 ```

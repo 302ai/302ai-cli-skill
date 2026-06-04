@@ -11,7 +11,7 @@ Type is auto-detected: `--image` present → i2i, absent → t2i.
 Submit an image generation task without blocking. Use `image fetch` to poll for results.
 
 ```bash
-ai302 image create --prompt "<prompt>" [OPTIONS]
+302ai image create --prompt "<prompt>" [OPTIONS]
 ```
 
 ### Options
@@ -49,17 +49,17 @@ ai302 image create --prompt "<prompt>" [OPTIONS]
 
 ```bash
 # Text-to-image (async)
-ai302 image create --prompt "a cat sitting on a windowsill" --model flux-schnell
+302ai image create --prompt "a cat sitting on a windowsill" --model flux-schnell
 # Returns: {"status":"pending","taskid":"task_abc123",...}
 
 # Image-to-image (async)
-ai302 image create --prompt "add sunglasses" --image "https://example.com/photo.jpg"
+302ai image create --prompt "add sunglasses" --image "https://example.com/photo.jpg"
 ```
 
 ## image fetch (Poll Async Task)
 
 ```bash
-ai302 image fetch <taskid> [--short]
+302ai image fetch <taskid> [--short]
 ```
 
 - `--short`: Returns only `status`, `taskid`, `result_url`
@@ -74,10 +74,10 @@ ai302 image fetch <taskid> [--short]
 
 ```bash
 # Submit task
-TASK=$(ai302 image create --prompt "a sunset over mountains" --model flux-schnell | jq -r .taskid)
+TASK=$(302ai image create --prompt "a sunset over mountains" --model flux-schnell | jq -r .taskid)
 
 # Poll until done (typically 10-30 seconds)
-ai302 image fetch $TASK --short
+302ai image fetch $TASK --short
 ```
 
 ## image generate (Sync — Fallback)
@@ -85,7 +85,7 @@ ai302 image fetch $TASK --short
 Blocks until the image is ready. Only use when the user explicitly wants a blocking call for a single immediate result. Prefer `image create` + `image fetch` instead — sync mode risks timeout on slow models.
 
 ```bash
-ai302 image generate --prompt "<prompt>" [OPTIONS]
+302ai image generate --prompt "<prompt>" [OPTIONS]
 ```
 
 Same options as `image create` (without `--run_async` and `--webhook`).
@@ -107,5 +107,5 @@ Same options as `image create` (without `--run_async` and `--webhook`).
 ### Example
 
 ```bash
-ai302 image generate --prompt "landscape" --width 1024 --height 768 --model flux-schnell
+302ai image generate --prompt "landscape" --width 1024 --height 768 --model flux-schnell
 ```

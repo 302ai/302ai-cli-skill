@@ -9,7 +9,7 @@ Type is auto-detected: `--image`/`--end_image` present → i2v, absent → t2v.
 Submit a video generation task.
 
 ```bash
-ai302 video create --prompt "<prompt>" [OPTIONS]
+302ai video create --prompt "<prompt>" [OPTIONS]
 ```
 
 ### Options
@@ -53,7 +53,7 @@ ai302 video create --prompt "<prompt>" [OPTIONS]
 Poll for task status and result.
 
 ```bash
-ai302 video fetch <taskid> [--short]
+302ai video fetch <taskid> [--short]
 ```
 
 - `--short`: Returns only `status`, `taskid`, `result_url`
@@ -68,12 +68,12 @@ ai302 video fetch <taskid> [--short]
 
 ```bash
 # Text-to-video
-ai302 video create --prompt "a cat runs across the yard" --model kling-v2
+302ai video create --prompt "a cat runs across the yard" --model kling-v2
 # Returns: {"status":"pending","taskid":"task_xyz789",...}
 
 # Poll until done (video generation takes 1-5 minutes typically)
-ai302 video fetch task_xyz789 --short
+302ai video fetch task_xyz789 --short
 
 # Image-to-video
-ai302 video create --prompt "the person starts walking" --image "https://example.com/photo.jpg" --model kling-v2
+302ai video create --prompt "the person starts walking" --image "https://example.com/photo.jpg" --model kling-v2
 ```

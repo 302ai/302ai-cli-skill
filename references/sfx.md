@@ -7,7 +7,7 @@ Generate sound effects from text prompts via Kling AI. **Async workflow** (creat
 Submit a sound effect generation task.
 
 ```bash
-ai302 sfx create --prompt "<prompt>" [OPTIONS]
+302ai sfx create --prompt "<prompt>" [OPTIONS]
 ```
 
 ### Options
@@ -52,7 +52,7 @@ ai302 sfx create --prompt "<prompt>" [OPTIONS]
 Poll for task completion.
 
 ```bash
-ai302 sfx fetch <taskid> [--short]
+302ai sfx fetch <taskid> [--short]
 ```
 
 - `--short`: Returns `status`, `taskid`, `ai302_cost_request_ids`, `result_url`
@@ -67,8 +67,8 @@ ai302 sfx fetch <taskid> [--short]
 
 ```bash
 # 1. Submit sound effect task
-ai302 sfx create --prompt "thunder storm with heavy rain" --duration 7.0
+302ai sfx create --prompt "thunder storm with heavy rain" --duration 7.0
 
 # 2. Poll until done
-ai302 sfx fetch task_abc123 --short
+302ai sfx fetch task_abc123 --short
 ```
