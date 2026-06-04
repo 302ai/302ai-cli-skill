@@ -1,5 +1,5 @@
 ---
-name: ai302-cli
+name: 302ai-cli
 description: >
   Use the 302.AI CLI (302ai) to generate images, videos, text-to-speech audio, speech-to-text transcriptions,
   sound effects, 3D models, music/songs, and perform web searches via AI models. Trigger this skill whenever the

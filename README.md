@@ -27,7 +27,7 @@ Enables Claude Code to generate images, videos, text-to-speech audio, transcript
 
 ```bash
 # From GitHub
-claude skill install github:302ai/302ai-cli-skill/.claude/skills/ai302-cli
+claude skill install github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 
 ```
 
@@ -35,7 +35,7 @@ claude skill install github:302ai/302ai-cli-skill/.claude/skills/ai302-cli
 
 ```bash
 # 1. Update the skill
-claude skill update github:302ai/302ai-cli-skill/.claude/skills/ai302-cli
+claude skill update github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 
 # 2. Upgrade the 302ai CLI package (required for new modules)
 pip install cli_302ai==1.0.2b1 --upgrade
