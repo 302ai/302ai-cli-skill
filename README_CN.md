@@ -1,10 +1,19 @@
 # 302.AI CLI Skill
 
-> 🚀 **为您的 AI 助手赋予多模态生成能力** - 一个 AI 编码助手技能，通过 `302ai` 命令行工具实现图片、视频、语音、音效、3D 模型、音乐歌曲和网络搜索功能，由 [302.AI 官方网站](https://302.ai/) 提供支持。
-
 [English](./README.md) | 中文文档
 
+
+🚀 **为您的 AI 助手赋予多模态生成能力** - 一个 AI 编码助手技能，通过 `302ai` 命令行工具实现图片、视频、语音、音效、3D 模型、音乐歌曲和网络搜索功能，由 [302.AI 官方网站](https://302.ai/) 提供支持。
+
+
 > 💡 **跨工具兼容** - 此 Skill 使用标准 SKILL.md 格式，支持 Claude Code、Cursor 及其他兼容的 AI 编码工具
+
+---
+## 🚀 快速开始
+对你的Agent说：
+```bash
+安装这个skill：https://github.com/302ai/302ai-cli-skill/blob/master/SKILL.md
+```
 
 ---
 
@@ -42,49 +51,24 @@
 
 ---
 
-## 🚀 快速开始
+### 🎯 各模块支持的模型
 
-### 前置条件
+| 模块 | 支持的模型 |
+|------|-----------|
+| 🎨 **Image** | `gemini-3.1-flash-image-preview` • `gpt-image-2-t2i` • `gpt-image-2-i2i` • `doubao-seedream-5-0-260128` • `gemini-3-pro-image` • `gemini-2.5-flash-image` • `gpt-image-1.5-t2i` • `gpt-image-1.5-i2i` • `wan2.7-image` • `wan2.7-image-pro` |
+| 🎬 **Video** | `happyhorse-1.0-t2v` • `happyhorse-1.0-i2v` • `happyhorse-1.0-r2v` • `kling-o3` • `doubao-seedance-2-0-260128` • `wan2.7-t2v` • `wan2.7-i2v` • `wan2.7-r2v` • `official-kling-v3` • `runway-gen4` • `minimaxi-hailuo-02` • `google-veo3.1` • `google-veo3.1-pro` • `minimaxi-hailuo-2.3` • `viduq3-pro` |
+| 🗣️ **TTS** | `tts-1` • `tts-1-hd` • `gpt-4o-mini-tts` • `doubao-tts` • `minimax-tts` • `google-tts` • `owen-tts` • `meitan-tts` • `mureka-tts` • `fish-audio-tts` • `elevenlabs-tts` |
+| 📝 **STT** | `whisper-1` • `gpt-4o-transcribe` • `gpt-4o-mini-transcribe` • `gpt-4o-transcribe-diarize` • `recognize` • `scribe_v1_experimental` • `scribe_v1` • `sensevoice` |
+| 🔊 **SFX** | `kling-sfx` |
+| 🧊 **3D** | `hyper3d-rodin` |
+| 🎵 **Song** | `chirp-fenix@suno` • `chirp-crow@suno` • `chirp-bluejay@suno` • `chirp-auk@suno` • `chirp-v4@suno` • `chirp-v3-5@suno` • `music-2.5+@minimax` • `music-2.5@minimax` • `music-2.0@minimax` • `music-1.5@minimax` • `music_v1@elevenlabs` |
+| 🔍 **Search** | `tavily` • `search1_search` • `search1_news` • `bocha` • `exa` • `firecrawl` • `metaso` • `unifuncs` • `perplexity` |
 
-1. **Python 3.10 或更高版本** - 确保已安装 Python 和 pip
-2. **获取 302.AI API Key** - 访问 [302.AI 官方网站](https://302.ai/) 注册并在管理后台获取密钥
-3. **安装 CLI 包：**
-   ```bash
-   pip install cli_302ai==1.0.2b2
-   ```
-
-4. **设置您的 API Key：**
-   
-   **macOS / Linux:**
-   ```bash
-   export AI302_KEY="your-api-key-here"
-   ```
-   
-   **Windows PowerShell:**
-   ```powershell
-   $env:AI302_KEY = "your-api-key-here"
-   ```
-
-> 您也可以在每个命令中使用 `--api_key` 参数。详见 [API Key 设置](#api-密钥设置)。
-
-### 安装 Skill
-
-```bash
-claude skill install github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
-```
-
-> **其他 AI 编码工具：** 下载 `SKILL.md` 并放置在您工具的 skills 目录中。详见[安装指南](#安装指南)。
-
-### 试用
-
-向您的 AI 助手提问：
-```
-生成一只水彩风格的猫的图片
-```
-
-您的 AI 助手将自动处理——选择正确的模块、构建命令并返回结果 URL。
-
+> **💡 提示：** 
+> - 以上为各模块支持的主要模型，完整列表请运行 `302ai model list <type>` 查看
+> - 不同模型的速度、质量、价格各有差异，请根据实际需求选择。价格请查看[官方网站](https://302.ai/)
 ---
+
 
 ## 💡 使用示例
 
@@ -234,7 +218,7 @@ claude skill install github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 
 ---
 
-## 📚 安装指南 {#安装指南}
+## 📚 安装指南
 
 本 Skill 适用于所有支持 `SKILL.md` 格式的 AI 编码工具。
 
@@ -285,7 +269,7 @@ pip install cli_302ai==1.0.2b2 --upgrade
 
 ---
 
-## 🎛️ API Key 设置 {#api-密钥设置}
+## 🎛️ API Key 设置
 
 ### 方法 1：环境变量（推荐）
 
