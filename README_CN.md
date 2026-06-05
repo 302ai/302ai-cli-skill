@@ -12,7 +12,7 @@
 ## 🚀 快速开始
 对你的Agent说：
 ```bash
-安装这个skill：https://github.com/302ai/302ai-cli-skill/blob/master/SKILL.md
+安装这个skill：https://github.com/302ai/302ai-cli-skill
 ```
 
 ---
