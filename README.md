@@ -20,7 +20,7 @@ Enables Claude Code to generate images, videos, text-to-speech audio, transcript
 ## Prerequisites
 
 - Python 3.10+
-- `pip install cli_302ai==1.0.2b1`
+- `pip install cli_302ai==1.0.2b2`
 - A 302.AI API key (`AI302_KEY` env var or `--api_key` flag)
 
 ## Install
@@ -38,7 +38,7 @@ claude skill install github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 claude skill update github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 
 # 2. Upgrade the 302ai CLI package (required for new modules)
-pip install cli_302ai==1.0.2b1 --upgrade
+pip install cli_302ai==1.0.2b2 --upgrade
 ```
 
 > **Important**: Updating the skill alone is not enough — you must also upgrade the `cli_302ai` pip package to the matching version, otherwise new modules (e.g. 3D, search) will not be available.
