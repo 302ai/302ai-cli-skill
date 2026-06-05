@@ -14,7 +14,7 @@
 
 Tell your Agent:
 ```bash
-Install this skill: https://github.com/302ai/302ai-cli-skill/blob/master/SKILL.md
+Install this skill: https://github.com/302ai/302ai-cli-skill
 ```
 
 ---
