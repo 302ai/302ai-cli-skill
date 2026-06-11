@@ -1,4 +1,7 @@
+<img width="1998" height="1020" alt="cli skill readme首图" src="https://github.com/user-attachments/assets/a5fd9455-f6e4-418c-87ac-e4b9fb93e33d" />
+
 # 302.AI CLI Skill
+---
 
 [English](#) | [中文文档](./README_CN.md)
 
@@ -48,26 +51,29 @@ A powerful AI coding skill that lets your AI assistant understand natural langua
 | 📝 **STT**        | Speech-to-text (transcription)                        | Sync                              | JSON text                     |
 | 🔊 **SFX**        | Text-to-sound-effect                                  | Async                             | MP3 URL                       |
 | 🧊 **3D**         | Text-to-3D / Image-to-3D                              | Async                             | GLB file URL                  |
-| 🎵 **Song**       | AI music/song generation + lyric writing              | Async (Suno) or Sync (Minimax/ElevenLabs) | MP3 URL              |
+| 🎵 **Music**       | AI music/song generation + lyric writing              | Async (Suno) or Sync (Minimax/ElevenLabs) | MP3 URL              |
 | 🔍 **Search**     | Web search (multiple providers)                       | Sync                              | JSON results                  |
 
 ---
 
 ### 🎯 Supported Models per Module
 
-| Module | Supported Models |
-|--------|-----------------|
-| 🎨 **Image** | `gemini-3.1-flash-image-preview` • `gpt-image-2-t2i` • `gpt-image-2-i2i` • `doubao-seedream-5-0-260128` • `gemini-3-pro-image` • `gemini-2.5-flash-image` • `gpt-image-1.5-t2i` • `gpt-image-1.5-i2i` • `wan2.7-image` • `wan2.7-image-pro` |
-| 🎬 **Video** | `happyhorse-1.0-t2v` • `happyhorse-1.0-i2v` • `happyhorse-1.0-r2v` • `kling-o3` • `doubao-seedance-2-0-260128` • `wan2.7-t2v` • `wan2.7-i2v` • `wan2.7-r2v` • `official-kling-v3` • `runway-gen4` • `minimaxi-hailuo-02` • `google-veo3.1` • `google-veo3.1-pro` • `minimaxi-hailuo-2.3` • `viduq3-pro` |
-| 🗣️ **TTS** | `tts-1` • `tts-1-hd` • `gpt-4o-mini-tts` • `doubao-tts` • `minimax-tts` • `google-tts` • `owen-tts` • `meitan-tts` • `mureka-tts` • `fish-audio-tts` • `elevenlabs-tts` |
-| 📝 **STT** | `whisper-1` • `gpt-4o-transcribe` • `gpt-4o-mini-transcribe` • `gpt-4o-transcribe-diarize` • `recognize` • `scribe_v1_experimental` • `scribe_v1` • `sensevoice` |
-| 🔊 **SFX** | `kling-sfx` |
-| 🧊 **3D** | `hyper3d-rodin` |
-| 🎵 **Song** | `chirp-fenix@suno` • `chirp-crow@suno` • `chirp-bluejay@suno` • `chirp-auk@suno` • `chirp-v4@suno` • `chirp-v3-5@suno` • `music-2.5+@minimax` • `music-2.5@minimax` • `music-2.0@minimax` • `music-1.5@minimax` • `music_v1@elevenlabs` |
-| 🔍 **Search** | `tavily` • `search1_search` • `search1_news` • `bocha` • `exa` • `firecrawl` • `metaso` • `unifuncs` • `perplexity` |
+
+| Module        | Supported Models                                                                                                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🎨 **Image**  | `nano-banana-2` • `gpt-image-2` • `doubao-seedream-5-0-260128` • `nano-banana-pro` • `nano-banana` • `gpt-image-1.5` • `wan2.7-image` • `wan2.7-image-pro`                                                          |
+| 🎬 **Video**  | `happyhorse-1.0` • `kling-o3` • `doubao-seedance-2-0-260128` • `wan2.7` • `official-kling-v3` • `runway-gen4` • `minimaxi-hailuo-02` • `google-veo3.1` • `google-veo3.1-pro` • `minimaxi-hailuo-2.3` • `viduq3-pro` |
+| 🗣️ **TTS**   | `tts-1-hd` • `qwen-tts-latest` • `glm-tts` • `doubao-tts` • `speech-02-hd` • `speech-1.6` • `dubbingx-tts` • `eleven_multilingual_v2`  • `gemini-2.5-flash-preview-tts`• `mureka-tts` and 32 more models            |
+| 📝 **STT**    | `whisper-1` • `gpt-4o-transcribe` • `gpt-4o-mini-transcribe` • `gpt-4o-transcribe-diarize` • `recognize` • `scribe_v1_experimental` • `scribe_v1` • `sensevoice`                                                    |
+| 🔊 **SFX**    | `kling-sfx`                                                                                                                                                                                                         |
+| 🧊 **3D**     | `hyper3d-rodin`                                                                                                                                                                                                     |
+| 🎵 **Music**  | `suno-v5 (fenix/crow/bluejay/auk)` • `suno-v4` • `suno-v3.5` • `minimax-music-2.5+` • `minimax-music-2.5` • `minimax-music-2.0` • `minimax-music-1.5` • `elevenlabs-music-v1`                                       |
+| 🔍 **Search** | `tavily` • `search1_search` • `search1_news` • `bocha` • `exa` • `firecrawl` • `metaso` • `unifuncs` • `perplexity`                                                                                                 |
+
 
 > **💡 Tips:**
-> - The above are the main models supported by each module. For the complete list, run `302ai model list <type>`
+>
+> - The models above are listed for reference. For exact model IDs to use in commands, run `302ai model list <type>`
 > - Speed, quality, and price vary across models — choose based on your actual needs. For pricing, visit the [official website](https://302.ai/)
 
 ---
@@ -249,7 +255,7 @@ For other tools that support `SKILL.md`:
 
 ## 🔄 Update Guide
 
-When new features are released (such as the Song module), follow these steps:
+When new features are released (such as the Music module), follow these steps:
 
 ### Step 1: Update the Skill
 
