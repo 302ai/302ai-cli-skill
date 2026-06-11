@@ -1,3 +1,5 @@
+<img width="1998" height="1020" alt="cli skill readme首图" src="https://github.com/user-attachments/assets/4c122dce-09a6-40de-ab2f-018fb61b2fb6" />
+
 # 302.AI CLI Skill
 
 [English](./README.md) | 中文文档
@@ -46,27 +48,31 @@
 | 📝 **STT**    | 语音转文本（转录）         | 同步                              | JSON 文本              |
 | 🔊 **SFX**    | 文本生成音效            | 异步                              | MP3 URL              |
 | 🧊 **3D**     | 文本生成 3D / 图片生成 3D | 异步                              | GLB 文件 URL           |
-| 🎵 **Song**   | AI 音乐/歌曲生成 + 歌词创作 | 异步（Suno）或同步（Minimax/ElevenLabs） | MP3 URL              |
+| 🎵 **Music**   | AI 音乐/歌曲生成 + 歌词创作 | 异步（Suno）或同步（Minimax/ElevenLabs） | MP3 URL              |
 | 🔍 **Search** | 网络搜索（多个提供商）       | 同步                              | JSON 结果              |
 
 ---
 
 ### 🎯 各模块支持的模型
 
-| 模块 | 支持的模型 |
-|------|-----------|
-| 🎨 **Image** | `gemini-3.1-flash-image-preview` • `gpt-image-2-t2i` • `gpt-image-2-i2i` • `doubao-seedream-5-0-260128` • `gemini-3-pro-image` • `gemini-2.5-flash-image` • `gpt-image-1.5-t2i` • `gpt-image-1.5-i2i` • `wan2.7-image` • `wan2.7-image-pro` |
-| 🎬 **Video** | `happyhorse-1.0-t2v` • `happyhorse-1.0-i2v` • `happyhorse-1.0-r2v` • `kling-o3` • `doubao-seedance-2-0-260128` • `wan2.7-t2v` • `wan2.7-i2v` • `wan2.7-r2v` • `official-kling-v3` • `runway-gen4` • `minimaxi-hailuo-02` • `google-veo3.1` • `google-veo3.1-pro` • `minimaxi-hailuo-2.3` • `viduq3-pro` |
-| 🗣️ **TTS** | `tts-1` • `tts-1-hd` • `gpt-4o-mini-tts` • `doubao-tts` • `minimax-tts` • `google-tts` • `owen-tts` • `meitan-tts` • `mureka-tts` • `fish-audio-tts` • `elevenlabs-tts` |
-| 📝 **STT** | `whisper-1` • `gpt-4o-transcribe` • `gpt-4o-mini-transcribe` • `gpt-4o-transcribe-diarize` • `recognize` • `scribe_v1_experimental` • `scribe_v1` • `sensevoice` |
-| 🔊 **SFX** | `kling-sfx` |
-| 🧊 **3D** | `hyper3d-rodin` |
-| 🎵 **Song** | `chirp-fenix@suno` • `chirp-crow@suno` • `chirp-bluejay@suno` • `chirp-auk@suno` • `chirp-v4@suno` • `chirp-v3-5@suno` • `music-2.5+@minimax` • `music-2.5@minimax` • `music-2.0@minimax` • `music-1.5@minimax` • `music_v1@elevenlabs` |
-| 🔍 **Search** | `tavily` • `search1_search` • `search1_news` • `bocha` • `exa` • `firecrawl` • `metaso` • `unifuncs` • `perplexity` |
 
-> **💡 提示：** 
-> - 以上为各模块支持的主要模型，完整列表请运行 `302ai model list <type>` 查看
+| 模块            | 支持的模型                                                                                                                                                                                                               |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🎨 **Image**  | `nano-banana-2` • `gpt-image-2` • `doubao-seedream-5-0-260128` • `nano-banana-pro` • `nano-banana` • `gpt-image-1.5` • `wan2.7-image` • `wan2.7-image-pro`                                                          |
+| 🎬 **Video**  | `happyhorse-1.0` • `kling-o3` • `doubao-seedance-2-0-260128` • `wan2.7` • `official-kling-v3` • `runway-gen4` • `minimaxi-hailuo-02` • `google-veo3.1` • `google-veo3.1-pro` • `minimaxi-hailuo-2.3` • `viduq3-pro` |
+| 🗣️ **TTS**   | `tts-1-hd` • `qwen-tts-latest` • `glm-tts` • `doubao-tts` • `speech-02-hd` • `speech-1.6` • `dubbingx-tts` • `eleven_multilingual_v2`  • `gemini-2.5-flash-preview-tts`• `mureka-tts` 等32个模型                        |
+| 📝 **STT**    | `whisper-1` • `gpt-4o-transcribe` • `gpt-4o-mini-transcribe` • `gpt-4o-transcribe-diarize` • `recognize` • `scribe_v1_experimental` • `scribe_v1` • `sensevoice`                                                    |
+| 🔊 **SFX**    | `kling-sfx`                                                                                                                                                                                                         |
+| 🧊 **3D**     | `hyper3d-rodin`                                                                                                                                                                                                     |
+| 🎵 **Music**  | `suno-v5 (fenix/crow/bluejay/auk)` • `suno-v4` • `suno-v3.5` • `minimax-music-2.5+` • `minimax-music-2.5` • `minimax-music-2.0` • `minimax-music-1.5` • `elevenlabs-music-v1`                                       |
+| 🔍 **Search** | `tavily` • `search1_search` • `search1_news` • `bocha` • `exa` • `firecrawl` • `metaso` • `unifuncs` • `perplexity`                                                                                                 |
+
+
+> **💡 提示：**
+>
+> - 以上为各模块支持的主要模型系列，供参考。命令中使用的完整 model ID 请运行 `302ai model list <type>` 获取
 > - 不同模型的速度、质量、价格各有差异，请根据实际需求选择。价格请查看[官方网站](https://302.ai/)
+
 ---
 
 
@@ -247,7 +253,7 @@ claude skill install github:302ai/302ai-cli-skill/.claude/skills/302ai-cli
 
 ## 🔄 更新指南
 
-当发布新功能（如 Song 模块）时，请按照以下步骤操作：
+当发布新功能（如 Music 模块）时，请按照以下步骤操作：
 
 ### 步骤 1：更新 Skill
 
